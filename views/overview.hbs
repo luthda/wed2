@@ -1,0 +1,47 @@
+<main>
+    <header>
+        <div class="menu">
+            <form method="post" action="/newNote">
+                <input type="submit" class="button" value="Create New Note">
+            </form>
+            <form method="get">
+                {{#if config.layout}}
+                    <input name="layout" value="dark" type="hidden">
+                {{else}}
+                    <input name="layout" value="white" type="hidden">
+                {{/if}}
+                <input type="submit" value="Style Switcher" class="button">
+            </form>
+        </div>
+
+        <div class="menu">
+
+            <form method="get">
+                <input name="sortBy" value="finishDate" type="hidden">
+                <input type="submit" value="By finish Date" class="button">
+            </form>
+
+            <form method="get">
+                <input name="sortBy" value="createDate" type="hidden">
+                <input type="submit" value="By create Date" class="button">
+            </form>
+
+            <form method="get">
+                <input name="sortBy" value="importance" type="hidden">
+                <input type="submit" value="By Importance" class="button">
+            </form>
+
+            <form method="get">
+                <input name="hideFinished" value="true" type="hidden">
+                <input type="submit" value="Fertige verbergen" class="button">
+            </form>
+
+        </div>
+    </header>
+
+
+    <h1>Hello Test</h1>
+
+
+
+</main>

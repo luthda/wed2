@@ -1,14 +1,14 @@
-#topButtons form, #lowerButtons form{
+form{
     width: min-content;
     display: inline-block;
 }
 
-#topButtons form:last-child, #lowerButtons form:last-child{
+.menu .button:last-child{
      position: absolute;
      right: 0;
  }
 
-input {
+.button {
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
@@ -24,6 +24,6 @@ input {
     border-radius: 3px;
 }
 
-input:hover{
+.button:hover{
     background-color: #e7e7e7;
 }
