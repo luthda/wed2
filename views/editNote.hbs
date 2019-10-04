@@ -1,0 +1,39 @@
+<main>
+    <header>
+        <h2>neue ToDo</h2>
+    </header>
+
+    <form method="post" class="noteForm">
+        {{#with note}}
+        <div>
+            <label>Title
+                <input type="text" name="title" value="{{title}}">
+            </label>
+        </div>
+        <div>
+            <label>Beschreibung
+                <textarea name="description">{{description}}</textarea>
+            </label>
+        </div>
+        <div>
+            <label>Wichtigkeit
+                <input type="number" min="0" max="5" name="importance" value="{{importance}}">
+            </label>
+        </div>
+        <div>
+            <label>Fertig bis
+                <input type="date" name="dueDate" value="{{dueDate}}">
+            </label>
+        </div>
+        <div>
+            <label>Erledigt
+                <input type="checkbox" name="finished" {{#if finished}}checked{{/if}}>
+            </label>
+        </div>
+        <div>
+            <input type="submit" value="Speichern">
+            <input type="reset" value="Abbruch">
+        </div>
+    {{/with}}
+    </form>
+</main>
