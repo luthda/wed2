@@ -1,0 +1,20 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "luthiger/caspani",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "method-override": "^3.0.0",
+    "nedb": "^1.8.0",
+    "nedb-promise": "^2.0.1",
+    "qs": "latest",
+    "cookie-parser": "latest"
+  }
+}

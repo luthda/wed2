@@ -18,30 +18,71 @@
 
             <form method="get">
                 <input name="sortBy" value="finishDate" type="hidden">
-                <input type="submit" value="By finish Date" class="button">
+                <input type="submit" value="By finish Date" class="button"  {{#if_eq sortBy 'finishDate'}}
+                       class="btn-focus"{{/if_eq}}>
             </form>
 
             <form method="get">
                 <input name="sortBy" value="createDate" type="hidden">
-                <input type="submit" value="By create Date" class="button">
+                <input type="submit" value="By create Date" class="button"  {{#if_eq sortBy 'createDate'}}
+                       class="btn-focus"{{/if_eq}}>
             </form>
 
             <form method="get">
                 <input name="sortBy" value="importance" type="hidden">
-                <input type="submit" value="By Importance" class="button">
+                <input type="submit" value="By Importance" class="button"  {{#if_eq sortBy 'importance'}}
+                       class="btn-focus"{{/if_eq}}>
             </form>
 
             <form method="get">
+                {{#if config.notes.filter}}
+                    <input name="hideFinished" value="false" type="hidden">
+                    <input type="submit" value="Fertige verbergen" class="button">
+                {{else}}
                 <input name="hideFinished" value="true" type="hidden">
                 <input type="submit" value="Fertige verbergen" class="button">
+                {{/if}}
             </form>
 
         </div>
     </header>
 
 
-    <h1>Hello Test</h1>
+    <section class="content">
+        {{#if notes}}
+            {{#each notes}}
+                <article>
+                    <header>
+                        <span>{{dueDate}}</span>
+                        <span>{{title}}</span>
+                        <div class="rating">
+                            {{#times rating}}
+                                <span class="star"></span>
+                            {{/times}}
+                        </div>
+                    </header>
 
+                    <div>
+                        <label>
+                            <input type="checkbox" {{#if finished}}checked{{/if}} disabled>
+                            <span>Finished</span>
+                        </label>
+                        <label>
+                            <textarea readonly>{{description}}</textarea>
+                        </label>
+                        <form method="post" action="/{{_id}}">
+                            <input type="submit" value="Edit" class="button">
+                        </form>
+                    </div>
+                </article>
+            {{/each}}
+        {{else}}
+            <div class="empty">
+                <p>Keine ToDo's gefunden!</p>
+            </div>
+        {{/if}}
+
+    </section>
 
 
 </main>
