@@ -1,21 +1,21 @@
 "use strict";
 const Datastore = require('nedb');
-const db = new Datastore({ filename: './data/notificationDB.db', autoload: true });
+const db = new Datastore({ filename: '../data/notificationDB.db', autoload: true });
 
-function Note(title, description, importance, date, done){
-        this.title = title;
-        this.description = description;
-        this.importance = importance;
-        this.date = date;
-        this.done = done;
+function Note(note){
+        this.title = note.title;
+        this.description = note.description;
+        this.importance = note.importance;
+        this.date = note.dueDate;
+        this.done = note.finished;
         this.state = "OK";
 }
 
-function publicAddNote(title, description, importance, date, done, callback)
+function publicAddNote(note, callback)
 {
     console.log("  publicAddNote start");
-    let note = new Note(title, description, importance, date, done);
-    db.insert(note, function(err, newDoc){
+    let newNote = new Note(note);
+    db.insert(newNote, function(err, newDoc){
         console.log("    insert");
         if(callback){
             callback(err, newDoc);
@@ -36,10 +36,12 @@ function publicGet(id, callback)
 });
 }
 
-function publicAll()
+
+
+function publicAll(callback)
 {
-    db.find({}, function (err, docs) {
-        callback( err, docs);
+    db.find({}, {},function (err, docs) {
+        callback(err, docs);
     });
 }
 

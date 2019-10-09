@@ -5,11 +5,14 @@
                 <input type="submit" class="button" value="Create New Note">
             </form>
             <form method="get">
-                {{#if config.layout}}
+              <!--  {//{#if config.layout}}
                     <input name="layout" value="dark" type="hidden">
-                {{else}}
+                {//{else}}
+                -->
                     <input name="layout" value="white" type="hidden">
-                {{/if}}
+               <!--
+                {//{/if}}
+                -->
                 <input type="submit" value="Style Switcher" class="button">
             </form>
         </div>
@@ -35,13 +38,18 @@
             </form>
 
             <form method="get">
-                {{#if config.notes.filter}}
+
+              <!--
+              {//{#if config.notes.filter}}
                     <input name="hideFinished" value="false" type="hidden">
                     <input type="submit" value="Fertige verbergen" class="button">
-                {{else}}
+                {//{else}}
+              -->
                 <input name="hideFinished" value="true" type="hidden">
                 <input type="submit" value="Fertige verbergen" class="button">
-                {{/if}}
+                <!--
+                {//{/if}}
+                -->
             </form>
 
         </div>
