@@ -10,6 +10,7 @@ router.get('/Note/new', notificationController.newNote);
 router.post('/notes', notificationController.addNote);
 router.post('/Note/edit', notificationController.editNote);
 router.post('/Note/edited', notificationController.editedNote);
+router.post('/styleSwitcher', notificationController.switchStyle);
 
 
 module.exports = router;

@@ -4,12 +4,12 @@
             <form method="get" action="/Note/new">
                 <input type="submit" class="button" value="Create New Note">
             </form>
-            <form method="get">
+            <form method="post" action="/styleSwitcher">
               {{#if config.layout}}
-                    <input name="layout" value="dark" type="hidden">
+                    <input name="layout" value="white" type="hidden">
                 {{else}}
 
-                    <input name="layout" value="white" type="hidden">
+                    <input name="layout" value="dark" type="hidden">
 
                 {{/if}}
 

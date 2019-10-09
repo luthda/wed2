@@ -1,0 +1,6 @@
+
+.dark {
+    background-color: black;
+    filter: invert(100%);
+}
+

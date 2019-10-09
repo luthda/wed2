@@ -1,5 +1,1 @@
-{
-  "layout": "",
-  "filter": true,
-  "sortBy": ""
-}
+{"layout":true,"filter":true,"sortBy":{"createDate":false,"dueDate":false,"importance":false}}
