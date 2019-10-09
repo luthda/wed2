@@ -1,18 +1,18 @@
 <main>
     <header>
         <div class="menu">
-            <form method="post" action="/Note/new">
+            <form method="get" action="/Note/new">
                 <input type="submit" class="button" value="Create New Note">
             </form>
             <form method="get">
-              <!--  {//{#if config.layout}}
+              {{#if config.layout}}
                     <input name="layout" value="dark" type="hidden">
-                {//{else}}
-                -->
+                {{else}}
+
                     <input name="layout" value="white" type="hidden">
-               <!--
-                {//{/if}}
-                -->
+
+                {{/if}}
+
                 <input type="submit" value="Style Switcher" class="button">
             </form>
         </div>
@@ -21,35 +21,32 @@
 
             <form method="get">
                 <input name="sortBy" value="finishDate" type="hidden">
-                <input type="submit" value="By finish Date" class="button"  {{#if_eq sortBy 'finishDate'}}
-                       class="btn-focus"{{/if_eq}}>
+                <input type="submit" value="By finish Date" class="button">
             </form>
 
             <form method="get">
                 <input name="sortBy" value="createDate" type="hidden">
-                <input type="submit" value="By create Date" class="button"  {{#if_eq sortBy 'createDate'}}
-                       class="btn-focus"{{/if_eq}}>
+                <input type="submit" value="By create Date" class="button">
             </form>
 
             <form method="get">
                 <input name="sortBy" value="importance" type="hidden">
-                <input type="submit" value="By Importance" class="button"  {{#if_eq sortBy 'importance'}}
-                       class="btn-focus"{{/if_eq}}>
+                <input type="submit" value="By Importance" class="button">
             </form>
 
             <form method="get">
 
-              <!--
-              {//{#if config.notes.filter}}
+
+              {{#if config.filter}}
                     <input name="hideFinished" value="false" type="hidden">
-                    <input type="submit" value="Fertige verbergen" class="button">
-                {//{else}}
-              -->
+                    <input type="submit" value="Fertige anzeigen" class="button">
+                {{else}}
+
                 <input name="hideFinished" value="true" type="hidden">
                 <input type="submit" value="Fertige verbergen" class="button">
-                <!--
-                {//{/if}}
-                -->
+
+                {{/if}}
+
             </form>
 
         </div>
@@ -63,11 +60,7 @@
                     <header>
                         <span>{{dueDate}}</span>
                         <span>{{title}}</span>
-                        <div class="rating">
-                            {{#times rating}}
-                                <span class="star"></span>
-                            {{/times}}
-                        </div>
+                        <span>{{importance}}</span>
                     </header>
 
                     <div>
@@ -78,7 +71,8 @@
                         <label>
                             <textarea readonly>{{description}}</textarea>
                         </label>
-                        <form method="post" action="/{{_id}}">
+                        <form method="post" action="/Note/edit">
+                            <input type="hidden" name="id" value="{{_id}}">
                             <input type="submit" value="Edit" class="button">
                         </form>
                     </div>

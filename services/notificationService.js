@@ -6,8 +6,8 @@ function Note(note){
         this.title = note.title;
         this.description = note.description;
         this.importance = note.importance;
-        this.date = note.dueDate;
-        this.done = note.finished;
+        this.dueDate = note.dueDate;
+        this.finished = note.finished;
         this.state = "OK";
 }
 
@@ -31,12 +31,18 @@ function publicRemove(id, callback) {
 }
 
 function publicGet(id, callback)
-{   db.findOne({ _id: id }, function (err, doc) {
+{   db.findOne({ _id: id },{}, function (err, doc) {
     callback( err, doc);
 });
 }
 
+function publicUpdate(id, newNote, callback){
+    let note = new Note(newNote);
+    db.update({_id: id}, note, function (err, docs) {
+        callback(err, docs);
 
+    });
+}
 
 function publicAll(callback)
 {
@@ -45,4 +51,4 @@ function publicAll(callback)
     });
 }
 
-module.exports = {add : publicAddNote, delete : publicRemove, get : publicGet, all : publicAll};
+module.exports = {add : publicAddNote, delete : publicRemove, get : publicGet, all : publicAll, update : publicUpdate};
