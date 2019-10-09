@@ -1,22 +1,18 @@
 'use strict';
 const express = require('express');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const hbs = require('express-handlebars');
 const path = require('path');
 
 const app = express();
 
-const routes = require('/routes/index');
+const routes = require('./routes/index');
 
 
 app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/'}));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 

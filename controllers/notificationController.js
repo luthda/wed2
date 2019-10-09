@@ -3,9 +3,12 @@
 const notificationService = require('../services/notificationService');
 const qs = require('qs');
 
-function index(req, res)
+module.exports.index = function(req, res)
 {
-    res.render('layout', { title: 'Notification App' });
-}
+    res.render('newNote');
+};
 
-module.exports = {index};
+module.exports.newNote = function(req, res)
+{
+    res.render('newNote', { });
+};
