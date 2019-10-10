@@ -4,13 +4,11 @@
             <form method="get" action="/Note/new">
                 <input type="submit" class="button" value="Create New Note">
             </form>
-            <form method="post" action="/styleSwitcher">
-              {{#if config.layout}}
+            <form method="get" action="/notes">
+                {{#if config.layout}}
                     <input name="layout" value="white" type="hidden">
                 {{else}}
-
                     <input name="layout" value="dark" type="hidden">
-
                 {{/if}}
 
                 <input type="submit" value="Style Switcher" class="button">
@@ -20,30 +18,45 @@
         <div class="menu">
 
             <form method="get">
-                <input name="sortBy" value="finishDate" type="hidden">
-                <input type="submit" value="By finish Date" class="button">
+                {{#if config.sortBy.dueDate}}
+                    <input name="sortBy" value="noSort" type="hidden">
+                {{else}}
+                    <input name="sortBy" value="finishDate" type="hidden">
+                {{/if}}
+                <input type="submit" value="By finish Date"
+                       class="button{{#if config.sortBy.dueDate}}, focus{{/if}}">
             </form>
 
             <form method="get">
-                <input name="sortBy" value="createDate" type="hidden">
-                <input type="submit" value="By create Date" class="button">
+                {{#if config.sortBy.createDate}}
+                    <input name="sortBy" value="noSort" type="hidden">
+                {{else}}
+                    <input name="sortBy" value="createDate" type="hidden">
+                {{/if}}
+                <input type="submit" value="By create Date"
+                       class="button{{#if config.sortBy.finishDate}}, focus{{/if}}">
             </form>
 
             <form method="get">
-                <input name="sortBy" value="importance" type="hidden">
-                <input type="submit" value="By Importance" class="button">
+                {{#if config.sortBy.importance}}
+                    <input name="sortBy" value="noSort" type="hidden">
+                {{else}}
+                    <input name="sortBy" value="importance" type="hidden">
+                {{/if}}
+
+                <input type="submit" value="By Importance" class="button{{#if config.sortBy.importance}}, focus{{/if}}">
             </form>
 
-            <form method="get">
+            <form method="get" action="/notes">
 
 
-              {{#if config.filter}}
+                {{#if config.filter}}
                     <input name="hideFinished" value="false" type="hidden">
                     <input type="submit" value="Fertige anzeigen" class="button">
                 {{else}}
 
-                <input name="hideFinished" value="true" type="hidden">
-                <input type="submit" value="Fertige verbergen" class="button">
+                    <input name="hideFinished" value="true" type="hidden">
+                    <input type="submit" value="Fertige verbergen" class="button">
 
                 {{/if}}
 

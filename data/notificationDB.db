@@ -1,2 +1,6 @@
-{"title":"test","description":"1234","importance":"3","dueDate":"2019-10-09","state":"OK","_id":"0xGdCdIC4s8bL84g"}
-{"title":"TestNote","description":"dfghjk","importance":"4","dueDate":"2019-10-23","finished":"on","state":"OK","_id":"NEtJErvcPBvMpBKc"}
+{"title":"Test 2","description":"create 2","importance":"2","dueDate":"2019-10-12","createDate":{"$$date":1570712395387},"state":"OK","_id":"3Rm7kkjyo4lPi5r4"}
+{"title":"TestNote","description":"test","importance":"","dueDate":"","createDate":{"$$date":1570712979346},"state":"OK","_id":"bNOCYID8bn2y0YU8"}
+{"title":"test 3","description":"create 3","importance":"3","dueDate":"2019-10-13","createDate":{"$$date":1570712410325},"state":"OK","_id":"oq6nqKea70NNCy7S"}
+{"title":"Test 1","description":"create 1","importance":"1","dueDate":"2019-10-11","createDate":{"$$date":1570712377582},"state":"OK","_id":"ybqYCYNexjCAi2cM"}
+{"title":"test4","description":"","importance":"","dueDate":"2019-10-08","createDate":{"$$date":1570712716118},"state":"OK","_id":"z82NNUMtAfLZch4w"}
+{"title":"test","description":"1234","importance":"","dueDate":"","createDate":{"$$date":1570713854055},"state":"OK","_id":"9M4KxBY8PtEcWoqh"}
