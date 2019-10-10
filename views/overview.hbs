@@ -24,7 +24,7 @@
                     <input name="sortBy" value="finishDate" type="hidden">
                 {{/if}}
                 <input type="submit" value="By finish Date"
-                       class="button{{#if config.sortBy.dueDate}}, focus{{/if}}">
+                       class="button{{#if config.sortBy.dueDate}} focus{{/if}}">
             </form>
 
             <form method="get">
@@ -34,7 +34,7 @@
                     <input name="sortBy" value="createDate" type="hidden">
                 {{/if}}
                 <input type="submit" value="By create Date"
-                       class="button{{#if config.sortBy.finishDate}}, focus{{/if}}">
+                       class="button{{#if config.sortBy.createDate}} focus{{/if}}">
             </form>
 
             <form method="get">
@@ -44,7 +44,7 @@
                     <input name="sortBy" value="importance" type="hidden">
                 {{/if}}
 
-                <input type="submit" value="By Importance" class="button{{#if config.sortBy.importance}}, focus{{/if}}">
+                <input type="submit" value="By Importance" class="button{{#if config.sortBy.importance}} focus{{/if}}">
             </form>
 
             <form method="get" action="/notes">

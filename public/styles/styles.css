@@ -1,4 +1,42 @@
 
+/* Buttons */
+.menu form{
+width: min-content;
+    display: inline-block;
+}
+
+.menu form:last-child{
+   position: absolute;
+   right: 10px;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 1px;
+    border: 1px solid #555555;
+}
+
+.button:hover {
+    background-color: darkgray;
+    color: white;
+}
+
+.focus {
+    background-color: #555555;
+    color: white;
+}
+
+
+
+
+
+
+/* DarkMode */
 .dark {
     background-color: black;
     filter: invert(100%);
