@@ -1,6 +1,2 @@
-{"title":"Test 2","description":"create 2","importance":"2","dueDate":"2019-10-12","createDate":{"$$date":1570712395387},"state":"OK","_id":"3Rm7kkjyo4lPi5r4"}
-{"title":"test","description":"1234","importance":"","dueDate":"","createDate":{"$$date":1570713854055},"state":"OK","_id":"9M4KxBY8PtEcWoqh"}
-{"title":"TestNote","description":"test","importance":"","dueDate":"","createDate":{"$$date":1570712979346},"state":"OK","_id":"bNOCYID8bn2y0YU8"}
-{"title":"test 3","description":"create 3","importance":"3","dueDate":"2019-10-13","createDate":{"$$date":1570712410325},"state":"OK","_id":"oq6nqKea70NNCy7S"}
-{"title":"Test 1","description":"create 1","importance":"1","dueDate":"2019-10-11","createDate":{"$$date":1570712377582},"state":"OK","_id":"ybqYCYNexjCAi2cM"}
-{"title":"test4","description":"","importance":"","dueDate":"2019-10-08","createDate":{"$$date":1570712716118},"state":"OK","_id":"z82NNUMtAfLZch4w"}
+{"title":"test 2","description":"not so imp","importance":"2","stars":"**","dueDate":"2019-10-24","finished":false,"createDate":{"$$date":1570782787134},"state":"OK","_id":"2pk5TFU4okbYF1oU"}
+{"title":"1234","description":"very Imprt","importance":"5","stars":"*****","dueDate":"2019-10-02","finished":false,"createDate":{"$$date":1570782758951},"state":"OK","_id":"K2skRoJrCWJ5bKqF"}

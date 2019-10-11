@@ -74,27 +74,31 @@ module.exports.editedNote = function (req, res) {
 
 //Helper Functions
 async function landingPage(res) {
-    if (config.filter) {
-        notificationService.notFinished(function (err, unsortedNotes) {
-            let notes = mySort(unsortedNotes);
-            res.render('overview', {'notes': notes, 'config': config});
-        });
-    } else {
-        await notificationService.all(async function (err, unsortedNotes) {
-            let notes = await mySort(unsortedNotes);
-            res.render('overview', {'notes': notes, 'config': config});
-        });
-    }
+    await notificationService.all(async function (err, unfilteredUnsortedNotes) {
+        let unsortedNotes = unfilteredUnsortedNotes;
+        if (config.filter){
+            unsortedNotes = myFilter(unfilteredUnsortedNotes);
+        }
+        let notes = mySort(unsortedNotes);
+        res.render('overview', {'notes': notes, 'config': config});
+    });
 }
 
-async function mySort(unsortedNotes) {
-    if(config.sortBy.dueDate) {
-        return unsortedNotes.sort((a, b) => new Date(b.dueDate ? b.dueDate : 1970-1-1) - new Date(a.dueDate ? a.dueDate : 1970-1-1));
-    }else if(config.sortBy.importance) {
+function myFilter(unfilteredNotes){
+    let filtered = unfilteredNotes.filter(function (note) {
+        return note.finished === false;
+    });
+    return filtered;
+}
+
+function mySort(unsortedNotes) {
+    if (config.sortBy.dueDate) {
+        return unsortedNotes.sort((a, b) => new Date(b.dueDate ? b.dueDate : 1970 - 1 - 1) - new Date(a.dueDate ? a.dueDate : 1970 - 1 - 1));
+    } else if (config.sortBy.importance) {
         return unsortedNotes.sort((a, b) => b.importance - a.importance);
-    }else if(config.sortBy.createDate) {
+    } else if (config.sortBy.createDate) {
         return unsortedNotes.sort((a, b) => b.createDate - a.createDate);
-    }else {
+    } else {
         return unsortedNotes;
     }
 }
