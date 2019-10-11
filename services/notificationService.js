@@ -68,18 +68,10 @@ function publicAll(callback) {
         callback(err, docs);
     });
 }
-
-function publicNotFinished(callback) {
-    db.find({$not:{finished: 'on'}}, {}, function (err, docs) {
-        callback(err, docs);
-    });
-}
-
 module.exports = {
     add: publicAddNote,
     delete: publicRemove,
     get: publicGet,
     all: publicAll,
     update: publicUpdate,
-    notFinished: publicNotFinished
 };

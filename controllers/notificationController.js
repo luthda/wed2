@@ -2,8 +2,6 @@
 
 const notificationService = require('../services/notificationService');
 const configService = require("../services/configService.js");
-const qs = require('qs');
-const fs = require('fs');
 let config = require('../data/config.json');
 
 

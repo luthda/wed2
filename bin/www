@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('Random2:server');
+var debug = require('debug')('Notification:server');
 var http = require('http');
 
 /**
