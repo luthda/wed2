@@ -32,20 +32,20 @@ module.exports.index = async function (req, res) {
 
     //SortBY
     else if (req.query.sortBy === "finishDate") {
-        config = await configService.sortByFinishDate();
+        config = await configService.sortByFinishDate(req.query.sequence);
         console.log("Sort BY Finish Date");
     } else if (req.query.sortBy === "createDate") {
-        config = await configService.sortByCreateDate();
+        config = await configService.sortByCreateDate(req.query.sequence);
         console.log("Sort BY create Date");
     } else if (req.query.sortBy === "importance") {
-        config = await configService.sortByImportance();
+        config = await configService.sortByImportance(req.query.sequence);
         console.log("Sort BY Importance");
     } else if (req.query.sortBy === "noSort") {
         config = await configService.noSort();
         console.log("No Sort By");
     }
 
-    await landingPage(res);
+    await landingPage(req, res);
 };
 
 module.exports.newNote = function (req, res) {
@@ -54,7 +54,7 @@ module.exports.newNote = function (req, res) {
 
 module.exports.addNote = function (req, res) {
     notificationService.add(req.body, async function (err, note) {
-        await landingPage(res);
+        await landingPage(req, res);
     });
 };
 
@@ -66,36 +66,49 @@ module.exports.editNote = function (req, res) {
 
 module.exports.editedNote = function (req, res) {
     notificationService.update(req.body._id, req.body, async function (err, note) {
-        await landingPage(res);
+        await landingPage(req, res);
     });
 };
 
 //Helper Functions
-async function landingPage(res) {
+async function landingPage(req, res) {
     await notificationService.all(async function (err, unfilteredUnsortedNotes) {
         let unsortedNotes = unfilteredUnsortedNotes;
-        if (config.filter){
+        if (config.filter) {
             unsortedNotes = myFilter(unfilteredUnsortedNotes);
         }
-        let notes = mySort(unsortedNotes);
+        let seq = req.query.sequence;
+        let notes = mySort(seq, unsortedNotes);
         res.render('overview', {'notes': notes, 'config': config});
     });
 }
 
-function myFilter(unfilteredNotes){
+function myFilter(unfilteredNotes) {
     let filtered = unfilteredNotes.filter(function (note) {
         return note.finished === false;
     });
     return filtered;
 }
 
-function mySort(unsortedNotes) {
+function mySort(seq, unsortedNotes) {
     if (config.sortBy.dueDate) {
-        return unsortedNotes.sort((a, b) => new Date(b.dueDate ? b.dueDate : 1970 - 1 - 1) - new Date(a.dueDate ? a.dueDate : 1970 - 1 - 1));
+        return unsortedNotes.sort((a, b) => {
+            let out = new Date(b.dueDate ? b.dueDate : 1970 - 1 - 1) - new Date(a.dueDate ? a.dueDate : 1970 - 1 - 1);
+            seq === "asc" ? out *= -1 : 1;
+            return out;
+        });
     } else if (config.sortBy.importance) {
-        return unsortedNotes.sort((a, b) => b.importance - a.importance);
+        return unsortedNotes.sort((a, b) => {
+            let out = b.importance - a.importance;
+            seq === "asc" ? out *= -1 : 1;
+            return out;
+        });
     } else if (config.sortBy.createDate) {
-        return unsortedNotes.sort((a, b) => b.createDate - a.createDate);
+        return unsortedNotes.sort((a, b) => {
+            let out = b.createDate - a.createDate;
+            seq === "asc" ? out *= -1 : 1;
+            return out;
+        });
     } else {
         return unsortedNotes;
     }

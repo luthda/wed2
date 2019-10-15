@@ -25,29 +25,30 @@ async function publicUnfilter() {
     return config;
 }
 
-async function publicSortByFinishDate() {
+async function publicSortByFinishDate(seq) {
     let config = await readJSON();
-    config.sortBy.dueDate = true;
+    config.sortBy.dueDate = seq;
     config.sortBy.createDate = false;
     config.sortBy.importance = false;
     await writeJSON(config);
     return config;
 }
 
-async function publicSortByCreateDate() {
+async function publicSortByCreateDate(seq) {
     let config = await readJSON();
     config.sortBy.dueDate = false;
-    config.sortBy.createDate = true;
+    config.sortBy.createDate = seq;
     config.sortBy.importance = false;
     await writeJSON(config);
     return config;
 }
 
-async function publicSortByImportance() {
+
+async function publicSortByImportance(seq) {
     let config = await readJSON();
     config.sortBy.dueDate = false;
     config.sortBy.createDate = false;
-    config.sortBy.importance = true;
+    config.sortBy.importance = seq;
     await writeJSON(config);
     return config;
 }

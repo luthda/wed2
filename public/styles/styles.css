@@ -1,4 +1,7 @@
-
+*{
+    font-size: 16px;
+    font-family: Georgia, sans-serif;
+}
 /* Buttons */
 .menu form{
 width: min-content;
@@ -17,7 +20,6 @@ width: min-content;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 2px 1px;
     border: 1px solid #555555;
 }
 
@@ -30,7 +32,6 @@ width: min-content;
     background-color: #555555;
     color: white;
 }
-
 
 
 

@@ -19,32 +19,50 @@
 
             <form method="get">
                 {{#if config.sortBy.dueDate}}
-                    <input name="sortBy" value="noSort" type="hidden">
+                    <input name="sortBy" value="finishDate" type="hidden">
+                    {{#ifeq config.sortBy.dueDate "dsc"}}
+                        <input name="sequence" value="asc" type="hidden">
+                    {{else}}
+                        <input name="sequence" value="dsc" type="hidden">
+                    {{/ifeq}}
                 {{else}}
                     <input name="sortBy" value="finishDate" type="hidden">
+                    <input name="sequence" value="dsc" type="hidden">
                 {{/if}}
-                <input type="submit" value="By finish Date"
+                <input type="submit" value="By finish Date{{#ifeq config.sortBy.dueDate "asc"}} ⯅{{/ifeq}}{{#ifeq config.sortBy.dueDate "dsc"}} ⯆{{/ifeq}}"
                        class="button{{#if config.sortBy.dueDate}} focus{{/if}}">
             </form>
 
             <form method="get">
                 {{#if config.sortBy.createDate}}
-                    <input name="sortBy" value="noSort" type="hidden">
+                    <input name="sortBy" value="createDate" type="hidden">
+                    {{#ifeq config.sortBy.createDate "dsc"}}
+                        <input name="sequence" value="asc" type="hidden">
+                    {{else}}
+                        <input name="sequence" value="dsc" type="hidden">
+                    {{/ifeq}}
                 {{else}}
                     <input name="sortBy" value="createDate" type="hidden">
+                    <input name="sequence" value="dsc" type="hidden">
                 {{/if}}
-                <input type="submit" value="By create Date"
+                <input type="submit" value="By create Date{{#ifeq config.sortBy.createDate "asc"}} ⯅{{/ifeq}}{{#ifeq config.sortBy.createDate "dsc"}} ⯆{{/ifeq}}"
                        class="button{{#if config.sortBy.createDate}} focus{{/if}}">
             </form>
 
             <form method="get">
                 {{#if config.sortBy.importance}}
-                    <input name="sortBy" value="noSort" type="hidden">
+                    <input name="sortBy" value="importance" type="hidden">
+                    {{#ifeq config.sortBy.importance "dsc"}}
+                        <input name="sequence" value="asc" type="hidden">
+                    {{else}}
+                        <input name="sequence" value="dsc" type="hidden">
+                    {{/ifeq}}
                 {{else}}
                     <input name="sortBy" value="importance" type="hidden">
+                    <input name="sequence" value="dsc" type="hidden">
                 {{/if}}
 
-                <input type="submit" value="By Importance" class="button{{#if config.sortBy.importance}} focus{{/if}}">
+                <input type="submit" value="By Importance{{#ifeq config.sortBy.importance "asc"}} ⯅{{/ifeq}}{{#ifeq config.sortBy.importance "dsc"}} ⯆{{/ifeq}}" class="button{{#if config.sortBy.importance}} focus{{/if}}">
             </form>
 
             <form method="get" action="/notes">
