@@ -1,16 +1,12 @@
-*{
+* {
     font-size: 16px;
     font-family: Georgia, sans-serif;
 }
-/* Buttons */
-.menu form{
-width: min-content;
-    display: inline-block;
-}
 
-.menu form:last-child{
-   position: absolute;
-   right: 10px;
+/* Buttons */
+
+.menu form{
+    width: 10em;
 }
 
 .button {
@@ -19,8 +15,8 @@ width: min-content;
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     border: 1px solid #555555;
+    width: 100%;
 }
 
 .button:hover {
@@ -33,13 +29,101 @@ width: min-content;
     color: white;
 }
 
+/* Overview */
+
+/* Navigation Buttons */
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+}
+.groupButtons{
+    display: flex;
+}
 
 
 
+
+/* Content align */
+.noteContainer {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Position */
+.noteHead{
+    display: flex;
+    height: fit-content;
+    min-height: 1em;
+}
+.noteHead > span:last-child{
+    position: absolute;
+    right: 8em;
+}
+.noteHead > span:nth-child(2){
+    position: absolute;
+    left: 8em;
+}
+
+/* Body Position */
+.noteBody {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.noteBody > * {
+    height: auto;
+    margin-right: 1em;
+    min-width: 6em;
+}
+
+.noteDescription {
+    height: auto;
+    width: 100%;
+}
+
+.editNote {
+    width: 7em;
+}
+
+
+
+@media screen and (max-width: 700px) {
+
+    /* Head Buttons */
+    .menu2{
+        flex-direction: column;
+    }
+    .groupButtons{
+        flex-direction: column;
+    }
+    .menu2 form, .menu2 input{
+        width: 100%;
+    }
+
+
+    /* Note Body */
+
+    .noteContainer{
+        padding: 0.5em;
+        border: 1px darkgray dashed;
+    }
+    .noteBody{
+        flex-direction: column;
+    }
+
+    .noteDescription{
+        padding-bottom: 1em;
+    }
+}
 
 /* DarkMode */
 .dark {
     background-color: black;
     filter: invert(100%);
 }
-

@@ -1,5 +1,5 @@
 <main>
-    <header>
+    <header class="buttonContainer">
         <div class="menu">
             <form method="get" action="/Note/new">
                 <input type="submit" class="button" value="Create New Note">
@@ -15,69 +15,68 @@
             </form>
         </div>
 
-        <div class="menu">
-
-            <form method="get">
-                {{#if config.sortBy.dueDate}}
-                    <input name="sortBy" value="finishDate" type="hidden">
-                    {{#ifeq config.sortBy.dueDate "dsc"}}
-                        <input name="sequence" value="asc" type="hidden">
+        <div class="menu menu2">
+            <div class="groupButtons">
+                <form method="get">
+                    {{#if config.sortBy.dueDate}}
+                        <input name="sortBy" value="finishDate" type="hidden">
+                        {{#ifeq config.sortBy.dueDate "dsc"}}
+                            <input name="sequence" value="asc" type="hidden">
+                        {{else}}
+                            <input name="sequence" value="dsc" type="hidden">
+                        {{/ifeq}}
                     {{else}}
+                        <input name="sortBy" value="finishDate" type="hidden">
                         <input name="sequence" value="dsc" type="hidden">
-                    {{/ifeq}}
-                {{else}}
-                    <input name="sortBy" value="finishDate" type="hidden">
-                    <input name="sequence" value="dsc" type="hidden">
-                {{/if}}
-                <input type="submit" value="By finish Date{{#ifeq config.sortBy.dueDate "asc"}} ⯅{{/ifeq}}{{#ifeq config.sortBy.dueDate "dsc"}} ⯆{{/ifeq}}"
-                       class="button{{#if config.sortBy.dueDate}} focus{{/if}}">
-            </form>
+                    {{/if}}
+                    <input type="submit" value="By finish Date{{#ifeq config.sortBy.dueDate "asc"}} ⯅{{/ifeq}}{{#ifeq
+                            config.sortBy.dueDate "dsc"}} ⯆{{/ifeq}}"
+                           class="button{{#if config.sortBy.dueDate}} focus{{/if}}">
+                </form>
 
-            <form method="get">
-                {{#if config.sortBy.createDate}}
-                    <input name="sortBy" value="createDate" type="hidden">
-                    {{#ifeq config.sortBy.createDate "dsc"}}
-                        <input name="sequence" value="asc" type="hidden">
+                <form method="get">
+                    {{#if config.sortBy.createDate}}
+                        <input name="sortBy" value="createDate" type="hidden">
+                        {{#ifeq config.sortBy.createDate "dsc"}}
+                            <input name="sequence" value="asc" type="hidden">
+                        {{else}}
+                            <input name="sequence" value="dsc" type="hidden">
+                        {{/ifeq}}
                     {{else}}
+                        <input name="sortBy" value="createDate" type="hidden">
                         <input name="sequence" value="dsc" type="hidden">
-                    {{/ifeq}}
-                {{else}}
-                    <input name="sortBy" value="createDate" type="hidden">
-                    <input name="sequence" value="dsc" type="hidden">
-                {{/if}}
-                <input type="submit" value="By create Date{{#ifeq config.sortBy.createDate "asc"}} ⯅{{/ifeq}}{{#ifeq config.sortBy.createDate "dsc"}} ⯆{{/ifeq}}"
-                       class="button{{#if config.sortBy.createDate}} focus{{/if}}">
-            </form>
+                    {{/if}}
+                    <input type="submit" value="By create Date{{#ifeq config.sortBy.createDate "asc"}} ⯅{{/ifeq}}{{#ifeq
+                            config.sortBy.createDate "dsc"}} ⯆{{/ifeq}}"
+                           class="button{{#if config.sortBy.createDate}} focus{{/if}}">
+                </form>
 
-            <form method="get">
-                {{#if config.sortBy.importance}}
-                    <input name="sortBy" value="importance" type="hidden">
-                    {{#ifeq config.sortBy.importance "dsc"}}
-                        <input name="sequence" value="asc" type="hidden">
+                <form method="get">
+                    {{#if config.sortBy.importance}}
+                        <input name="sortBy" value="importance" type="hidden">
+                        {{#ifeq config.sortBy.importance "dsc"}}
+                            <input name="sequence" value="asc" type="hidden">
+                        {{else}}
+                            <input name="sequence" value="dsc" type="hidden">
+                        {{/ifeq}}
                     {{else}}
+                        <input name="sortBy" value="importance" type="hidden">
                         <input name="sequence" value="dsc" type="hidden">
-                    {{/ifeq}}
-                {{else}}
-                    <input name="sortBy" value="importance" type="hidden">
-                    <input name="sequence" value="dsc" type="hidden">
-                {{/if}}
+                    {{/if}}
 
-                <input type="submit" value="By Importance{{#ifeq config.sortBy.importance "asc"}} ⯅{{/ifeq}}{{#ifeq config.sortBy.importance "dsc"}} ⯆{{/ifeq}}" class="button{{#if config.sortBy.importance}} focus{{/if}}">
-            </form>
-
+                    <input type="submit" value="By Importance{{#ifeq config.sortBy.importance "asc"}} ⯅{{/ifeq}}{{#ifeq
+                            config.sortBy.importance "dsc"}} ⯆{{/ifeq}}"
+                           class="button{{#if config.sortBy.importance}} focus{{/if}}">
+                </form>
+            </div>
             <form method="get" action="/notes">
-
-
                 {{#if config.filter}}
                     <input name="hideFinished" value="false" type="hidden">
                     <input type="submit" value="Fertige anzeigen" class="button">
                 {{else}}
-
                     <input name="hideFinished" value="true" type="hidden">
                     <input type="submit" value="Fertige verbergen" class="button">
-
                 {{/if}}
-
             </form>
 
         </div>
@@ -87,27 +86,27 @@
     <section class="content">
         {{#if notes}}
             {{#each notes}}
-                <article>
-                    <header>
+                <div class="noteContainer">
+                    <header class="noteHead">
                         <span>{{dueDate}}</span>
                         <span>{{title}}</span>
                         <span>{{stars}}</span>
                     </header>
 
-                    <div>
+                    <div class="noteBody">
                         <label>
                             <input type="checkbox" {{#if finished}}checked{{/if}} disabled>
                             <span>Finished</span>
                         </label>
-                        <label>
-                            <textarea readonly>{{description}}</textarea>
+                        <label class="noteDescription">
+                            <textarea readonly style="width: 100%; height: 100%">{{description}}</textarea>
                         </label>
                         <form method="post" action="/Note/edit">
                             <input type="hidden" name="id" value="{{_id}}">
-                            <input type="submit" value="Edit" class="button">
+                            <input type="submit" value="Edit" class="button editNote">
                         </form>
                     </div>
-                </article>
+                </div>
             {{/each}}
         {{else}}
             <div class="empty">

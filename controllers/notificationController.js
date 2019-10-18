@@ -40,10 +40,10 @@ module.exports.index = async function (req, res) {
     } else if (req.query.sortBy === "importance") {
         config = await configService.sortByImportance(req.query.sequence);
         console.log("Sort BY Importance");
-    } else if (req.query.sortBy === "noSort") {
+    } /* else if (req.query.sortBy === "noSort") {
         config = await configService.noSort();
         console.log("No Sort By");
-    }
+    } */
 
     await landingPage(req, res);
 };
@@ -84,10 +84,9 @@ async function landingPage(req, res) {
 }
 
 function myFilter(unfilteredNotes) {
-    let filtered = unfilteredNotes.filter(function (note) {
+    return unfilteredNotes.filter(function (note) {
         return note.finished === false;
     });
-    return filtered;
 }
 
 function mySort(seq, unsortedNotes) {
