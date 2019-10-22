@@ -2,7 +2,7 @@
 
 const notificationService = require('../services/notificationService');
 const configService = require("../services/configService.js");
-let config = require('../data/config.json');
+let config = configService.configuration;
 
 
 module.exports.index = async function (req, res) {

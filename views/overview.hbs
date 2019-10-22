@@ -88,9 +88,11 @@
             {{#each notes}}
                 <div class="noteContainer">
                     <header class="noteHead">
-                        <span>{{dueDate}}</span>
-                        <span>{{title}}</span>
-                        <span>{{stars}}</span>
+                        <div class="dateTitleContainer">
+                            <div>{{dueDate}}</div>
+                            <div>{{title}}</div>
+                        </div>
+                        <div>{{stars}}</div>
                     </header>
 
                     <div class="noteBody">
@@ -99,7 +101,7 @@
                             <span>Finished</span>
                         </label>
                         <label class="noteDescription">
-                            <textarea readonly style="width: 100%; height: 100%">{{description}}</textarea>
+                            <textarea rows="3" readonly>{{description}}</textarea>
                         </label>
                         <form method="post" action="/Note/edit">
                             <input type="hidden" name="id" value="{{_id}}">

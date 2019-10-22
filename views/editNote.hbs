@@ -27,10 +27,12 @@
         </div>
         <div>
             <label>Erledigt
+                <div>
                 <input type="checkbox" name="finished" {{#if finished}}checked{{/if}}>
+                </div>
             </label>
         </div>
-        <div>
+        <div class="submitNote">
             <input type="hidden" name="_id" value="{{_id}}">
             <input type="submit" value="Speichern" class="button">
             <a class="button" href="/">Abbruch</a>
