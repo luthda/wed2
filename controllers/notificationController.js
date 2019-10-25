@@ -3,6 +3,7 @@
 const notificationService = require('../services/notificationService');
 const configService = require("../services/configService.js");
 let config = configService.configuration;
+let humanize = require('../utils/dateUtil.js');
 
 
 module.exports.index = async function (req, res) {
@@ -79,6 +80,9 @@ async function landingPage(req, res) {
         }
         let seq = req.query.sequence;
         let notes = mySort(seq, unsortedNotes);
+        notes.forEach(function (note, index) {
+            note.dueDate = humanize.humanizeDate(note.dueDate);
+        });
         res.render('overview', {'notes': notes, 'config': config});
     });
 }

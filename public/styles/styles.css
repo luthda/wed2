@@ -77,17 +77,16 @@
     display: flex;
     height: fit-content;
     min-height: 1em;
+    justify-content: space-between;
 }
 .dateTitleContainer{
     display: flex;
+    flex-direction: column;
+    width: 100%;
 }
-.noteHead > div:last-child{
-    position: absolute;
-    right: 8em;
-}
-.dateTitleContainer > div:nth-child(2){
-    position: absolute;
-    left: 8em;
+
+.dateTitleContainer > div:first-child{
+    width: 7em;
 }
 
 /* Body Position */
@@ -140,7 +139,11 @@
     max-width: 24em;
 }
 
-
+@media screen and (min-width: 400px) {
+    .dateTitleContainer{
+        flex-direction: row;
+    }
+}
 
 @media screen and (min-width: 700px) {
 
@@ -164,6 +167,9 @@
     }
     .noteBody{
         flex-direction: row;
+    }
+    .noteHead > div:last-child{
+        margin-right: 8em;
     }
 
 }
