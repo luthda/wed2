@@ -6,6 +6,8 @@ const path = require('path');
 
 const app = express();
 
+app.use(require("cookie-parser")());
+
 const routes = require('./routes/index');
 
 

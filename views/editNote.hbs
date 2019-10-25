@@ -3,11 +3,11 @@
         <h2>edit ToDo</h2>
     </header>
 
-    <form method="post" class="noteForm" action="/Note/edited">
+    <form method="post" class="noteForm" action="/Note/saveEdited">
         {{#with note}}
         <div>
             <label>Title
-                <input type="text" name="title" value="{{title}}">
+                <input type="text" name="title" value="{{title}}" required>
             </label>
         </div>
         <div>
@@ -17,7 +17,7 @@
         </div>
         <div>
             <label>Wichtigkeit
-                <input type="number" min="0" max="5" name="importance" value="{{importance}}">
+                <input type="number" min="0" max="5" name="importance" value="{{importance}}" required>
             </label>
         </div>
         <div>

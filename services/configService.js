@@ -1,69 +1,47 @@
 "use strict";
-const fs = require('fs');
 
-let config = {"layout": false,
+module.exports.config = function (query, config = {
+    "layout": false,
     "filter": false,
-    "sortBy": {"createDate": false, "dueDate": false, "importance": false}
-};
+    "sortBy": {"createDate": false, "dueDate": false, "importance": false},
+    "seq": "asc"
+}) {
+    if (query.layout === "dark") {
+        config.layout = true;
+        console.log("Dark Mode");
 
-async function publicFilter() {
-    config.filter = true;
+    } else if (query.layout === "white") {
+        config.layout = false;
+        console.log("White Mode");
+
+    }
+
+    //Filter
+    else if (query.hideFinished === "true") {
+        config.filter = true;
+        console.log("Filter");
+    } else if (query.hideFinished === "false") {
+        config.filter = false;
+        console.log("Unfilter");
+
+    }
+
+    //SortBY
+    else if (query.sortBy === "finishDate") {
+        config.sortBy.dueDate = query.sequence;
+        config.sortBy.createDate = false;
+        config.sortBy.importance = false;
+        console.log("Sort BY Finish Date");
+    } else if (query.sortBy === "createDate") {
+        config.sortBy.dueDate = false;
+        config.sortBy.createDate = query.sequence;
+        config.sortBy.importance = false;
+        console.log("Sort BY create Date");
+    } else if (query.sortBy === "importance") {
+        config.sortBy.dueDate = false;
+        config.sortBy.createDate = false;
+        config.sortBy.importance = query.sequence;
+        console.log("Sort BY Importance");
+    }
     return config;
-}
-
-async function publicUnfilter() {
-   config.filter = false;
-   return config;
-}
-
-async function publicSortByFinishDate(seq) {
-    config.sortBy.dueDate = seq;
-    config.sortBy.createDate = false;
-    config.sortBy.importance = false;
-    return config;
-}
-
-async function publicSortByCreateDate(seq) {
-    config.sortBy.dueDate = false;
-    config.sortBy.createDate = seq;
-    config.sortBy.importance = false;
-    return config;
-}
-
-
-async function publicSortByImportance(seq) {
-    config.sortBy.dueDate = false;
-    config.sortBy.createDate = false;
-    config.sortBy.importance = seq;
-    return config;
-}
-
-async function publicSortByNone() {
-    config.sortBy.dueDate = false;
-    config.sortBy.createDate = false;
-    config.sortBy.importance = false;
-    return config;
-}
-
-
-async function publicDarkMode() {
-    config.layout = true;
-    return config;
-}
-
-async function publicWhiteMode() {
-    config.layout = false;
-    return config;
-}
-
-module.exports = {
-    filter: publicFilter,
-    unfilter: publicUnfilter,
-    sortByFinishDate: publicSortByFinishDate,
-    sortByCreateDate: publicSortByCreateDate,
-    sortByImportance: publicSortByImportance,
-    noSort: publicSortByNone,
-    dark: publicDarkMode,
-    white: publicWhiteMode,
-    configuration: config
 };

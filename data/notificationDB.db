@@ -1,6 +1,3 @@
-{"title":"test 2","description":"not so imp","importance":"2","stars":"**","dueDate":"2019-10-24","finished":false,"createDate":{"$$date":1570782787134},"state":"OK","_id":"2pk5TFU4okbYF1oU"}
-{"title":"bmsdcb","description":"test21\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1","importance":"","stars":"","dueDate":"","finished":"on","createDate":{"$$date":1570791450367},"state":"OK","_id":"91LRd9ki6fb96wOO"}
-{"title":"1234","description":"very Imprt","importance":"5","stars":"*****","dueDate":"2019-10-02","finished":false,"createDate":{"$$date":1570782758951},"state":"OK","_id":"K2skRoJrCWJ5bKqF"}
-{"title":"test23456","description":"54321","importance":"2","stars":"**","dueDate":"2019-10-18","finished":false,"createDate":{"$$date":1571389586623},"state":"OK","_id":"KfmQrPaG400abGlF"}
-{"title":"test in 1 jahr","description":"","importance":"","stars":"","dueDate":"2020-10-21","finished":false,"createDate":{"$$date":1571834943703},"state":"OK","_id":"YDN5wXvlHE8x4UUJ"}
-{"title":"test in 1 jahr","description":"","importance":"","stars":"","dueDate":"2020-10-21","finished":false,"createDate":{"$$date":1571834967561},"state":"OK","_id":"fWiXm3smmKnvVOmr"}
+{"title":"TEst 1","description":"1234","importance":"3","stars":"***","dueDate":"2019-10-31","finished":"on","createDate":{"$$date":1572002324518},"state":"OK","_id":"2ChODqDeWNZoNQwq"}
+{"title":"Test","description":"kein Date","importance":"1","stars":"*","dueDate":"","finished":"on","createDate":{"$$date":1572002485402},"state":"OK","_id":"mKSajlKo6FdeyOX3"}
+{"title":"Test 2","description":"9876","importance":"5","stars":"*****","dueDate":"2019-10-26","finished":"on","createDate":{"$$date":1572002344166},"state":"OK","_id":"ochTwFlNPZ8NApTR"}

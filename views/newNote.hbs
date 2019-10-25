@@ -3,10 +3,10 @@
         <h2>neue ToDo</h2>
     </header>
 
-    <form method="post" class="noteForm" action="/notes">
+    <form method="post" class="noteForm" action="/Note/saveNew">
         <div>
             <label>Title
-                <input type="text" name="title">
+                <input type="text" name="title" required>
             </label>
         </div>
         <div>
@@ -16,7 +16,7 @@
         </div>
         <div>
             <label>Wichtigkeit
-                <input type="number" min="0" max="5" name="importance">
+                <input type="number" min="0" max="5" name="importance" required>
             </label>
         </div>
         <div>
