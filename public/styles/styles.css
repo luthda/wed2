@@ -121,9 +121,11 @@
     flex-direction: column;
 }
 
+
 .noteForm > div {
-    display: flex;
-}
+     display: flex;
+     margin-bottom: 0.5em;
+ }
 
 .noteForm > div > label {
     min-width: 25em;
@@ -136,7 +138,7 @@
 }
 
 .submitNote{
-    max-width: 24em;
+    max-width: 25em;
 }
 
 @media screen and (min-width: 400px) {
