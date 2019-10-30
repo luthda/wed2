@@ -5,7 +5,7 @@
 
 /* Buttons */
 
-.menu form{
+.menu form {
     width: 10em;
 }
 
@@ -33,33 +33,34 @@
 /* Overview */
 
 /* Navigation Buttons */
-.buttonContainer{
+.buttonContainer {
     display: flex;
     flex-direction: column;
 }
-.menu{
+
+.menu {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
 }
-.groupButtons{
+
+.groupButtons {
     display: flex;
     flex-direction: column;
 }
-.menu2{
+
+.menu2 {
     flex-direction: column;
 }
 
-.menu2 input{
+.menu2 input {
     width: 100%;
     height: 100%;
 }
 
-.menu2 form{
+.menu2 form {
     width: 100%;
 }
-
-
 
 
 /* Content align */
@@ -73,19 +74,20 @@
 }
 
 /* Header Position */
-.noteHead{
+.noteHead {
     display: flex;
     height: fit-content;
     min-height: 1em;
     justify-content: space-between;
 }
-.dateTitleContainer{
+
+.dateTitleContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.dateTitleContainer > div:first-child{
+.dateTitleContainer > div:first-child {
     width: 7em;
 }
 
@@ -116,63 +118,89 @@
 
 /* New / Edit Note */
 
-.noteForm{
+.noteForm {
     display: flex;
     flex-direction: column;
 }
 
-.noteForm > div {
+
+
+.noteContent > div > {
+    margin-top: 1em;
+    width: 100%;
     display: flex;
+    flex-direction: column;
+
 }
 
-.noteForm > div > label {
-    min-width: 25em;
+.noteContent > div > input{
+    width: 100%;
+    padding: 0.2em;
+    border: solid 1px darkgray;
+    border-radius: 2px;
+}
+
+.submitNote {
     display: flex;
-    justify-content: space-between;
-}
-
-.noteForm > div > label > *{
-    width: 12em;
-}
-
-.submitNote{
-    max-width: 24em;
+    flex-direction: column;
+    width: 100%;
 }
 
 @media screen and (min-width: 400px) {
-    .dateTitleContainer{
+    .dateTitleContainer {
         flex-direction: row;
+    }
+
+    .submitNote{
+        flex-direction: row;
+        max-width: 24em;
     }
 }
 
 @media screen and (min-width: 700px) {
 
     /* Head Buttons */
-    .menu2{
+    .menu2 {
         flex-direction: row;
     }
-    .groupButtons{
+
+    .groupButtons {
         flex-direction: row;
     }
-    .menu2 form{
+
+    .menu2 form {
         width: 10em;
     }
 
 
     /* Note Body */
-
-    .noteContainer{
+    .noteContainer {
         padding: 0;
         border: none;
     }
-    .noteBody{
+
+    .noteBody {
         flex-direction: row;
     }
-    .noteHead > div:last-child{
+
+    .noteHead > div:last-child {
         margin-right: 8em;
     }
 
+    /* Edit Note */
+    .noteContent > div > label{
+        flex-direction: row;
+
+        flex: 1;
+    }
+
+    .noteContent > div > label > *{
+        flex: 2;
+    }
+
+
 }
+
 /* DarkMode */
 .dark {
     background-color: black;

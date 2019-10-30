@@ -5,38 +5,41 @@
 
     <form method="post" class="noteForm" action="/Note/saveEdited">
         {{#with note}}
-        <div>
-            <label>Title
-                <input type="text" name="title" value="{{title}}" required>
-            </label>
-        </div>
-        <div>
-            <label>Beschreibung
-                <textarea name="description">{{description}}</textarea>
-            </label>
-        </div>
-        <div>
-            <label>Wichtigkeit
-                <input type="number" min="0" max="5" name="importance" value="{{importance}}" required>
-            </label>
-        </div>
-        <div>
-            <label>Fertig bis
-                <input type="date" name="dueDate" value="{{dueDate}}">
-            </label>
-        </div>
-        <div>
-            <label>Erledigt
+            <div class="noteContent">
                 <div>
-                <input type="checkbox" name="finished" {{#if finished}}checked{{/if}}>
+                    <label>Title</label>
+                        <input type="text" name="title" value="{{title}}" required>
+
                 </div>
-            </label>
-        </div>
-        <div class="submitNote">
-            <input type="hidden" name="_id" value="{{_id}}">
-            <input type="submit" value="Speichern" class="button">
-            <a class="button" href="/">Abbruch</a>
-        </div>
-    {{/with}}
+                <div>
+                    <label>Beschreibung
+                        <textarea name="description" rows="3">{{description}}</textarea>
+                    </label>
+                </div>
+                <div>
+                    <label>Wichtigkeit
+                        <input type="number" min="0" max="5" name="importance" value="{{importance}}" required>
+                    </label>
+                </div>
+                <div>
+                    <label>Fertig bis</label>
+                        <input type="date" name="dueDate" value="{{dueDate}}">
+
+                </div>
+            </div>
+            <div>
+                <label>Erledigt
+                    <div>
+                        <input type="checkbox" name="finished" {{#if finished}}checked{{/if}}>
+                    </div>
+                </label>
+            </div>
+
+            <div class="submitNote">
+                <input type="hidden" name="_id" value="{{_id}}">
+                <input type="submit" value="Speichern" class="button">
+                <a class="button" href="/">Abbruch</a>
+            </div>
+        {{/with}}
     </form>
 </main>

@@ -1,3 +1,1 @@
-{"title":"TEst 1","description":"1234","importance":"3","stars":"***","dueDate":"2019-10-31","finished":"on","createDate":{"$$date":1572002324518},"state":"OK","_id":"2ChODqDeWNZoNQwq"}
-{"title":"Test","description":"kein Date","importance":"1","stars":"*","dueDate":"","finished":"on","createDate":{"$$date":1572002485402},"state":"OK","_id":"mKSajlKo6FdeyOX3"}
-{"title":"Test 2","description":"9876","importance":"5","stars":"*****","dueDate":"2019-10-26","finished":"on","createDate":{"$$date":1572002344166},"state":"OK","_id":"ochTwFlNPZ8NApTR"}
+{"title":"Test","description":"1234","importance":"3","stars":"***","dueDate":"2019-10-31","finished":false,"createDate":{"$$date":1572417685801},"state":"OK","_id":"BopTcnI8jsHtFj6R"}

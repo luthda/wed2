@@ -4,32 +4,34 @@
     </header>
 
     <form method="post" class="noteForm" action="/Note/saveNew">
-        <div>
-            <label>Title
-                <input type="text" name="title" required>
-            </label>
-        </div>
-        <div>
-            <label>Beschreibung
-                <textarea name="description"></textarea>
-            </label>
-        </div>
-        <div>
-            <label>Wichtigkeit
-                <input type="number" min="0" max="5" name="importance" required>
-            </label>
-        </div>
-        <div>
-            <label>Fertig bis
-                <input type="date" name="dueDate">
-            </label>
-        </div>
-        <div>
-            <label>Erledigt
-                <div>
-                    <input type="checkbox" name="finished">
-                </div>
-            </label>
+        <div class="noteContent">
+            <div>
+                <label>Title
+                    <input type="text" name="title" required>
+                </label>
+            </div>
+            <div>
+                <label>Beschreibung
+                    <textarea name="description"></textarea>
+                </label>
+            </div>
+            <div>
+                <label>Wichtigkeit
+                    <input type="number" min="0" max="5" name="importance" required>
+                </label>
+            </div>
+            <div>
+                <label>Fertig bis
+                    <input type="date" name="dueDate">
+                </label>
+            </div>
+            <div>
+                <label>Erledigt
+                    <div>
+                        <input type="checkbox" name="finished">
+                    </div>
+                </label>
+            </div>
         </div>
         <div class="submitNote">
             <input type="submit" value="Speichern" class="button">
