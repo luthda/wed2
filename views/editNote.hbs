@@ -6,34 +6,35 @@
     <form method="post" class="noteForm" action="/Note/saveEdited">
         {{#with note}}
             <div class="noteContent">
-                <div>
-                    <label>Title</label>
-                        <input type="text" name="title" value="{{title}}" required>
+                <div class="propertyContainer">
+                    <label class="label">Title</label>
+                    <input type="text" name="title" value="{{title}}" required class="propertyInput">
 
                 </div>
-                <div>
-                    <label>Beschreibung
-                        <textarea name="description" rows="3">{{description}}</textarea>
-                    </label>
+                <div class="propertyContainer">
+                    <label class="label">Beschreibung</label>
+                    <textarea name="description" rows="3" class="propertyInput">{{description}}</textarea>
+
                 </div>
-                <div>
-                    <label>Wichtigkeit
-                        <input type="number" min="0" max="5" name="importance" value="{{importance}}" required>
-                    </label>
+                <div class="propertyContainer">
+                    <label class="label">Wichtigkeit</label>
+                    <input type="number" min="0" max="5" name="importance" value="{{importance}}" required
+                           class="propertyInput">
+
                 </div>
-                <div>
-                    <label>Fertig bis</label>
-                        <input type="date" name="dueDate" value="{{dueDate}}">
+                <div class="propertyContainer">
+                    <label class="label">Fertig bis</label>
+                    <input type="date" name="dueDate" value="{{dueDate}}" class="propertyInput">
 
                 </div>
             </div>
-            <div>
-                <label>Erledigt
-                    <div>
-                        <input type="checkbox" name="finished" {{#if finished}}checked{{/if}}>
-                    </div>
-                </label>
+            <div class="checkboxContainer">
+                <label class="label">Erledigt</label>
+                <div class="checkboxflex">
+                    <input type="checkbox" name="finished" {{#if finished}}checked{{/if}}>
+                </div>
             </div>
+
 
             <div class="submitNote">
                 <input type="hidden" name="_id" value="{{_id}}">

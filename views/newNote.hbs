@@ -1,41 +1,43 @@
 <main>
     <header>
-        <h2>neue ToDo</h2>
+        <h2>edit ToDo</h2>
     </header>
 
     <form method="post" class="noteForm" action="/Note/saveNew">
-        <div class="noteContent">
-            <div>
-                <label>Title
-                    <input type="text" name="title" required>
-                </label>
+            <div class="noteContent">
+                <div class="propertyContainer">
+                    <label class="label">Title</label>
+                    <input type="text" name="title" required class="propertyInput">
+
+                </div>
+                <div class="propertyContainer">
+                    <label class="label">Beschreibung</label>
+                    <textarea name="description" rows="3" class="propertyInput"></textarea>
+
+                </div>
+                <div class="propertyContainer">
+                    <label class="label">Wichtigkeit</label>
+                    <input type="number" min="0" max="5" name="importance" required class="propertyInput">
+
+                </div>
+                <div class="propertyContainer">
+                    <label class="label">Fertig bis</label>
+                    <input type="date" name="dueDate" class="propertyInput">
+
+                </div>
             </div>
-            <div>
-                <label>Beschreibung
-                    <textarea name="description"></textarea>
-                </label>
+            <div class="checkboxContainer">
+                <label class="label">Erledigt</label>
+                <div class="checkboxflex">
+                    <input type="checkbox" name="finished" checked>
+                </div>
             </div>
-            <div>
-                <label>Wichtigkeit
-                    <input type="number" min="0" max="5" name="importance" required>
-                </label>
+
+
+            <div class="submitNote">
+                <input type="submit" value="Speichern" class="button">
+                <a class="button" href="/">Abbruch</a>
             </div>
-            <div>
-                <label>Fertig bis
-                    <input type="date" name="dueDate">
-                </label>
-            </div>
-            <div>
-                <label>Erledigt
-                    <div>
-                        <input type="checkbox" name="finished">
-                    </div>
-                </label>
-            </div>
-        </div>
-        <div class="submitNote">
-            <input type="submit" value="Speichern" class="button">
-            <a class="button" href="/">Abbruch</a>
-        </div>
+
     </form>
 </main>

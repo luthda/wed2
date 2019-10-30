@@ -123,30 +123,46 @@
     flex-direction: column;
 }
 
-
-
-.noteContent > div > {
-    margin-top: 1em;
-    width: 100%;
+.propertyContainer{
     display: flex;
     flex-direction: column;
-
+    margin-top: 1em;
 }
 
-.noteContent > div > input{
+.label {
+    width: 12em;
+}
+
+.propertyInput{
     width: 100%;
     padding: 0.2em;
     border: solid 1px darkgray;
     border-radius: 2px;
 }
 
+.checkboxContainer{
+    margin-top: 1em;
+    display: flex;
+}
+.checkboxflex{
+    width: 100%;
+}
+
 .submitNote {
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-@media screen and (min-width: 400px) {
+a.button{
+    width: unset;
+}
+
+
+/* Media Queries */
+
+@media screen and (min-width: 40em) {
     .dateTitleContainer {
         flex-direction: row;
     }
@@ -155,9 +171,12 @@
         flex-direction: row;
         max-width: 24em;
     }
+    a.button{
+        width: 100%;
+    }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 64em) {
 
     /* Head Buttons */
     .menu2 {
@@ -188,14 +207,8 @@
     }
 
     /* Edit Note */
-    .noteContent > div > label{
+    .noteContent > div{
         flex-direction: row;
-
-        flex: 1;
-    }
-
-    .noteContent > div > label > *{
-        flex: 2;
     }
 
 
