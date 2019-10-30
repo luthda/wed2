@@ -3,6 +3,10 @@
     font-family: Georgia, sans-serif;
 }
 
+h1 {
+    font-size: 2em;
+}
+
 /* Buttons */
 
 .menu form {
@@ -110,6 +114,11 @@
     width: 100%;
 }
 
+.noteDescription > textarea{
+    border: solid 1px darkgray;
+    border-radius: 2px;
+}
+
 .editNote {
     width: 7em;
     height: 100%;
@@ -131,6 +140,7 @@
 
 .label {
     width: 12em;
+    font-weight: bold;
 }
 
 .propertyInput{

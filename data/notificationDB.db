@@ -1,1 +1,5 @@
-{"title":"Test","description":"1234","importance":"3","stars":"***","dueDate":"2019-10-31","finished":false,"createDate":{"$$date":1572417685801},"state":"OK","_id":"BopTcnI8jsHtFj6R"}
+{"title":"Weihnachten","description":"Ho ho ho","importance":"5","stars":"*****","dueDate":"2019-12-25","finished":false,"createDate":{"$$date":1572444236626},"state":"OK","_id":"Ct3Xwo4vMFJ6q2Ch"}
+{"title":"Steuererklärung","description":"","importance":"1","stars":"*","dueDate":"2019-10-31","finished":"on","createDate":{"$$date":1572444323223},"state":"OK","_id":"MWKxoJAPVF5NmZWo"}
+{"title":"Testat Abgabe","description":"","importance":"3","stars":"***","dueDate":"2019-11-06","finished":false,"createDate":{"$$date":1572444289035},"state":"OK","_id":"oszjPh9K0cB7oFDk"}
+{"title":"WED 3","description":"","importance":"0","stars":"","dueDate":"","finished":false,"createDate":{"$$date":1572444665615},"state":"OK","_id":"tpdAR9jiTSEEhyUf"}
+{"title":"WED 3","description":"jjjjjj","importance":"0","stars":"","dueDate":"","finished":false,"createDate":{"$$date":1572444665615},"state":"OK","_id":"tpdAR9jiTSEEhyUf"}
